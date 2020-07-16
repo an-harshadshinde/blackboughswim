@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Daquini Shopify App</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="description" content="Jozi-Mix and Match">
+        <meta name="keywords" content="mixmatch, mix & match, mixandmatch">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> -->
+        <script src="https://mixandmatch.applicationnexus.com/public/javascripts/fabric.js-master/dist/fabric.js">
+        </script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/daquini_builder.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+        <!-- <script type="text/javascript">
+            var $j = $.noConflict();
+        </script> -->
+
+        <!-- <script type="text/javascript">
+            var $j = $.noConflict();
+        </script> -->
+
+        <script>
+            var shopify_products = <%-JSON.stringify(s_product)%>;
+            console.log(shopify_products)
+
+            var product_data = <%-JSON.stringify(productData)%>;
+            var currencySymbol = <%-JSON.stringify(currencySymbol)%>;
+        </script>
+    </head>
+
+    <body>
+        <div class="daquini-container">
+            <div class="row">
+
+                <div class="col-md-8 image-col">
+                    <div class="row slide-row">
+                        <div class="col-12 text-center">
+                            Select Top
+                        </div>
+                        <div class="col-md-12 top-container-col">
+                            <!-- <div class="container text-center my-3"> -->
+                            <div class="row mx-auto my-auto">
+                                <div id="topCarousel" class="carousel slide w-100" data-ride="carousel">
+                                    <!-- <ol class="carousel-indicators">
+                                        <li data-target="#topCarousel" data-slide-to="0">
+                                        </li>
+                                        <li data-target="#topCarousel" data-slide-to="1" class="center active"></li>
+                                        <li data-target="#topCarousel" data-slide-to="2"></li>
+                                    </ol> -->
+
+                                    <div class="carousel-inner w-100" role="listbox">
+                                        <%if(productData instanceof Array){%>
+                                        <%for(var i=0;i<productData.length;i++){%>
+                                        <%if(productData[i]["product_type"] == "tops"){%>
+
+                                        <%if(i==0){%>
+                                        <div class="carousel-item active" id="top-<%=productData[i]['product_id']%>">
+                                            <div class="d-block col-4">
+                                                <img class="d-block slide-image img-fluid img-<%=productData[i]['product_id']%>"
+                                                    src="<%=productData[i]['img']%>"
+                                                    data-type="<%=productData[i]['product_type']%>"
+                                                    data-name="<%=productData[i]['product_name']%>"
+                                                    data-price="<%=productData[i]['product_price']%>"
+                                                    data-variant="<%=productData[i]['variantId']%>"
+                                                    data-id="<%=productData[i]['product_id']%>"
+                                                    alt='Generic placeholder thumbnail'>
+                                            </div>
+                                        </div>
+                                        <%}else{%>
+                                        <div class="carousel-item" id="top-<%=productData[i]['product_id']%>">
+                                            <div class="d-block col-4">
+                                                <img class="d-block slide-image img-fluid img-<%=productData[i]['product_id']%>"
+                                                    src="<%=productData[i]['img']%>"
+                                                    data-type="<%=productData[i]['product_type']%>"
+                                                    data-name="<%=productData[i]['product_name']%>"
+                                                    data-price="<%=productData[i]['product_price']%>"
+                                                    data-variant="<%=productData[i]['variantId']%>"
+                                                    data-id="<%=productData[i]['product_id']%>"
+                                                    alt='Generic placeholder thumbnail'>
+                                            </div>
+                                        </div>
+                                        <%}%>
+
+                                        <%}%>
+                                        <%}%>
+                                        <%}%>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#topCarousel" role="button"
+                                        data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#topCarousel" role="button"
+                                        data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-md-12 bottom-container-col">
+                            <!-- <div class="container text-center my-3"> -->
+                            <div class="row mx-auto my-auto">
+                                <div id="bottomCarousel" class="carousel slide w-100" data-ride="carousel">
+                                    <div class="carousel-inner w-100" role="listbox">
+                                        <%if(productData instanceof Array){%>
+                                        <%var k=0%>
+                                        <%for(var i=0;i<productData.length;i++){%>
+                                        <%if(productData[i]["product_type"] == "bottoms"){%>
+                                        <%if(k==0){%>
+                                        <div class="carousel-item active" id="bottom-<%=productData[i]['product_id']%>">
+                                            <div class="d-block col-4">
+                                                <%k%>
+                                                <img class="d-block slide-image img-fluid img-<%=productData[i]['product_id']%>"
+                                                src="<%=productData[i]['img']%>"
+                                                data-type="<%=productData[i]['product_type']%>"
+                                                data-name="<%=productData[i]['product_name']%>"
+                                                data-price="<%=productData[i]['product_price']%>"
+                                                data-variant="<%=productData[i]['variantId']%>"
+                                                data-id="<%=productData[i]['product_id']%>"
+                                                alt='Generic placeholder thumbnail'>
+                                            </div>
+                                        </div>
+                                        <%}else{%>
+                                        <div class="carousel-item" id="bottom-<%=productData[i]['product_id']%>">
+                                            <div class="d-block col-4">
+                                                <img class="d-block slide-image img-fluid img-<%=productData[i]['product_id']%>"
+                                                    src="<%=productData[i]['img']%>"
+                                                    data-type="<%=productData[i]['product_type']%>"
+                                                    data-name="<%=productData[i]['product_name']%>"
+                                                    data-price="<%=productData[i]['product_price']%>"
+                                                    data-variant="<%=productData[i]['variantId']%>"
+                                                    data-id="<%=productData[i]['product_id']%>"
+                                                    alt='Generic placeholder thumbnail'>
+                                            </div>
+                                        </div>
+                                        <%}%>
+                                        <%k++%>
+                                        <%}%>
+                                        <%}%>
+
+                                        <%}%>
+
+                                    </div>
+                                    <a class="carousel-control-prev" href="#bottomCarousel" role="button"
+                                        data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#bottomCarousel" role="button"
+                                        data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-12 bottom-pick text-center">
+                            Match with a Bottom
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row kit-details">
+                        <div class="col-12">
+                                <%if(categories instanceof Array){%>
+                                        <span class="kit-name"> <%=categories[0]['kit_name']%></span>
+                                        <%}%>
+                        </div>
+                        <div class="col-12" style="margin-top:3%">
+                                <%if(categories instanceof Array){%>
+                                        <p class="kit-desc"><%=categories[0]['description']%></p>
+                                        <%}%>
+                        </div>
+                        <div class="col-12" style="margin-top:3%;font-size: 12px;">
+                            <span style="color:grey">
+                                Fabric :
+                            </span>
+                            <span style="color: #8e8e8e;">
+                                FRANCE |
+                            </span>
+                            <span style="color:grey">
+                                Designed & Made in :
+                            </span>
+                            <span style="color:#8e8e8e">
+                                EUROPE
+                            </span>
+                        </div>
+                        <div class="col-12 top-product-details" style="margin-top:10%;">
+                                <%if(productData instanceof Array){%>
+                                        <%for(var i=0;i<productData.length;i++){%>
+                                        <%if(productData[i]["product_type"] == "tops"){%>
+                                        <span class="top-product-name"><%=productData[i]['product_name']%>&nbsp;</span>
+                                        <span class="top-product-price">-
+                                            <%=currencySymbol%><%=productData[i]['product_price']%></span>
+                                        <%break%>
+                                        <%}%>
+                                    <%}%>
+                                        <%}%>
+                                        
+                                    </div>
+                                    <div class="col-12" style="margin-top:10%;">
+                                        <div class="btn-group" id="top-btn-group" role="group">
+                                            <button type="button" class="btn top-btn1"></button>
+                                            <button type="button" class="btn top-btn2"></button>
+                                            <button type="button" class="btn top-btn3"></button>
+                                            <button type="button" class="btn top-btn4"></button>
+                                            <button type="button" class="btn top-btn5"></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12" style="margin-top:10%;padding:0">
+                                        <!-- <div class="dropdown-class"> -->
+                                        <!-- <div class="dropdown size"> -->
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">Size </button>
+                                        <ul class="dropdown-menu top-size-dropdown"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <li>
+                                                <a class="dropdown-item" href="#">L</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">M</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">S</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">XS</a>
+                                            </li>
+                                        </ul>
+                                        <!-- </div> -->
+                                        <!-- </div> -->
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <hr style="width:100%;margin-left:5%">
+                                    <div class="col-12 bottom-product-details" style="margin-top:10%;">
+                                        <span class="bottom-product-name">3/4 Two-Tone Leggings&nbsp;</span>
+                                        <span class="bottom-product-price">- Rs.129.00</span>
+                                    </div>
+                                    <div class="col-12" style="margin-top:10%;">
+                                        <div class="btn-group" id="bottom-btn-group" role="group">
+                                            <button type="button" class="btn top-btn1" style="background-color: charcoal"></button>
+                                            <button type="button" class="btn top-btn2"></button>
+                                            <button type="button" class="btn top-btn3"></button>
+                                            <button type="button" class="btn top-btn4"></button>
+                                            <button type="button" class="btn top-btn5"></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12" style="margin-top:10%;padding:0;">
+                                        <!-- <div class="dropdown-class"> -->
+                                        <!-- <div class="dropdown size"> -->
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">Size </button>
+                                        <ul class="dropdown-menu bottom-size-dropdown"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <li>
+                                                <a class="dropdown-item" href="#">L</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">M</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">S</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">XS</a>
+                                            </li>
+                                        </ul>
+                                        <!-- </div> -->
+                                        <!-- </div> -->
+                                    </div>
+                                    <div class="col-12" style="margin-top:10%;">
+                                        <button class="btn-secondary buy-button rounded-0" type="button">BUY TOGETHER-
+                                            Rs.
+                                            209.00</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                    <script>
+                    // $('#topCarousel').carousel({
+//     // autoplay: true,
+//     center: true,
+//     // loop: true,
+//     nav: true,
+// });
+                        
+    var top_carousel_html = $("#topCarousel");
+    $('#topCarousel').carousel({
+        interval: false,
+        center: true
+    })
+
+    var shopify_products = JSON.parse(shopify_products)
+
+    $('#topCarousel .carousel-item').each(function () {
+        var next = $(this).next();
+        console.log("next item :", next);
+        console.log("next item length:", next.length);
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 3; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+
+            next.children(':first-child').clone().appendTo($(this));
+            // if (i == 1) {
+            //     $(this).addClass("active");
+            // }
+        }
+    });
+    $('#bottomCarousel').carousel({
+        interval: false
+    })
+
+    $('#bottomCarousel .carousel-item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 3; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+
+    //Initialize top and bottom next image
+    var top_next_image,bottom_next_image;
+    var activeSlide = $('#topCarousel .active');
+    if (activeSlide.next().length) {
+        top_next_image = activeSlide.next().find('img');
+    } else {
+        top_next_image = $('#topCarousel .carousel-inner').children().first().find('img');
+    }
+    console.log("top product_name is:",top_next_image.data("name"));
+    $(".top-product-name").text(top_next_image.data("name"));
+    $(".top-product-price").text(" -"+currencySymbol+top_next_image.data("price"));
+    var top_product_id = top_next_image.data("id");
+
+    //add sizes
+    if(product_data instanceof Array){
+            for(var i=0;i<product_data.length ;i++){
+                if(product_data[i]["product_id"] == top_product_id){                    
+                    if(shopify_products["products"] instanceof Array){
+                        for(var k=0;k<=shopify_products.products.length ;k++){
+                            if(top_product_id == shopify_products.products[k]["id"]){
+                                console.log("name : ",shopify_products.products[k]["title"]);
+                                var values = shopify_products.products[k]["options"][0]["values"];
+                                console.log("values are :",values);
+                                var html= "";
+                                for(var v= 0 ;v<values.length;v++){
+                                    html = html +'<li><a class="dropdown-item" href="#">'+values[v]+'</a></li>';
+                                }
+                                $(".top-size-dropdown").html("");
+                                $(".top-size-dropdown").html(html);
+                                break;
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+
+        //add colors
+        if(product_data instanceof Array){
+            for(var i=0;i<product_data.length ;i++){
+                   
+                if(product_data[i]["product_id"] == top_product_id){                    
+                    if(shopify_products["products"] instanceof Array){
+                        for(var k=0;k<=shopify_products.products.length ;k++){
+                            if(top_product_id == shopify_products.products[k]["id"]){
+                                console.log("name : ",shopify_products.products[k]["title"]);
+                                var colors = shopify_products.products[k]["options"][1]["values"];
+                                var variants = shopify_products.products[k]["variants"];
+                                console.log("values are :",values);
+                                var html= "";
+                                for(var c= 0 ;c<colors.length;c++){
+                                    var color = colors[c];
+                                    for(var v_count=0 ;v_count<variants.length;v_count++){
+                                        if(variants[v_count]["option2"] == color){
+                                            html = html +'<button type="button" class="btn top-btn1" onclick="change_top_variant(' + variants[v_count]["id"]+","+variants[v_count]["product_id"] + ');"></button>';
+                                            break;
+                                        }
+                                        
+                                    }                                    
+                                }
+                                $("#top-btn-group").html("");
+                                $("#top-btn-group").html(html);
+                                break;
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+
+    //Set size of bottom product description
+    var bottomActiveSlide = $('#bottomCarousel .active');
+    if (bottomActiveSlide.next().length) {
+        bottom_next_image = bottomActiveSlide.next().find('img');
+    } else {
+        bottom_next_image = $('#bottomCarousel .carousel-inner').children().first().find('img');
+    }
+    $(".bottom-product-name").text(bottom_next_image.data("name"));
+    $(".bottom-product-price").text(" -"+currencySymbol+bottom_next_image.data("price"));
+    console.log("bottom product_name is:",bottom_next_image.data("name"));
+    var bottom_product_id = bottom_next_image.data("id");
+    if(product_data instanceof Array){
+            for(var i=0;i<product_data.length ;i++){
+                if(product_data[i]["product_id"] == bottom_product_id){                    
+                    if(shopify_products["products"] instanceof Array){
+                        for(var k=0;k<=shopify_products.products.length ;k++){
+                            if(bottom_product_id == shopify_products.products[k]["id"]){
+                                console.log("name : ",shopify_products.products[k]["title"]);
+                                var values = shopify_products.products[k]["options"][0]["values"];
+                                console.log("values are :",values);
+                                var html= "";
+                                for(var v= 0 ;v<values.length;v++){
+                                    html = html +'<li><a class="dropdown-item" href="#">'+values[v]+'</a></li>';
+                                }
+                                $(".bottom-size-dropdown").html("");
+                                $(".bottom-size-dropdown").html(html);
+                                break;
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+
+
+        //add bottom colors
+        if(product_data instanceof Array){
+            for(var i=0;i<product_data.length ;i++){                   
+                if(product_data[i]["product_id"] == bottom_product_id){              
+                    if(shopify_products["products"] instanceof Array){
+                        for(var k=0;k<=shopify_products.products.length ;k++){
+                            if(bottom_product_id == shopify_products.products[k]["id"]){
+                                console.log("name : ",shopify_products.products[k]["title"]);
+                                var colors = shopify_products.products[k]["options"][1]["values"];
+                                var variants = shopify_products.products[k]["variants"];
+                                console.log("values are :",colors);
+                                var html= "";
+                                for(var c= 0 ;c<colors.length;c++){
+                                    var color = colors[c];
+                                    for(var v_count=0 ;v_count<variants.length;v_count++){
+                                        if(variants[v_count]["option2"] == color){
+                                            html = html +'<button type="button" class="btn bottom-btn1" onclick="change_bottom_variant(' + variants[v_count]["id"]+","+variants[v_count]["product_id"] + ');"></button>';
+                                            break;
+                                        }
+                                        
+                                    }                                    
+                                }
+                                $("#bottom-btn-group").html("");
+                                $("#bottom-btn-group").html(html);
+                                break;
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+
+    //Get center image of data
+    $('#topCarousel').on('slid.bs.carousel', function (e) {
+        var activeSlide = $('#topCarousel .active');
+        // console.log("active image is :",activeSlide.find('img').attr("src"));
+
+        if (activeSlide.next().length) {
+            top_next_image = activeSlide.next().find('img');
+        } else {
+            top_next_image = $('#topCarousel .carousel-inner').children().first().find('img');
+        }
+        // console.log("top_next_image : ",top_next_image);
+        console.log("top product_name is:",top_next_image.data("name"));
+
+        //Set top products name and size
+        $(".top-product-name").text(top_next_image.data("name"));
+        $(".top-product-price").text(" -"+currencySymbol+top_next_image.data("price"));
+        
+        var top_product_id = top_next_image.data("id");
+
+        if(product_data instanceof Array){
+            for(var i=0;i<product_data.length ;i++){
+                if(product_data[i]["product_id"] == top_product_id){                    
+                    if(shopify_products["products"] instanceof Array){
+                        for(var k=0;k<=shopify_products.products.length ;k++){
+                            if(top_product_id == shopify_products.products[k]["id"]){
+                                console.log("name : ",shopify_products.products[k]["title"]);
+                                var sizes = shopify_products.products[k]["options"][0]["values"];
+                                console.log("values are :",sizes);
+                                var html= "";
+                                for(var v= 0 ;v<sizes.length;v++){
+                                    html = html +'<li><a class="dropdown-item" href="#">'+sizes[v]+'</a></li>';
+                                }
+                                $(".top-size-dropdown").html("");
+                                $(".top-size-dropdown").html(html);
+                                
+
+                                //add colors
+                                var colors = shopify_products.products[k]["options"][1]["values"];
+                                var variants = shopify_products.products[k]["variants"];
+                                console.log("values are :",values);
+                                var html1= "";
+                                for(var c= 0 ;c<colors.length;c++){
+                                    var color = colors[c];
+                                    for(var v_count=0 ;v_count<variants.length;v_count++){
+                                        if(variants[v_count]["option2"] == color){
+                                            html1 = html1 +'<button type="button" class="btn top-btn1" onclick="change_top_variant(' + variants[v_count]["id"]+","+variants[v_count]["product_id"] + ');"></button>';
+                                            break;
+                                        }
+                                        
+                                    }                                    
+                                }
+                                $("#top-btn-group").html("");
+                                $("#top-btn-group").html(html1);
+                                break;
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+        
+    })
+    
+
+    //Get center image for bottom
+    $('#bottomCarousel').on('slid.bs.carousel', function (e) {
+        var activeSlide = $('#bottomCarousel .active');
+        // console.log("active image is :",activeSlide.find('img').attr("src"));
+
+        if (activeSlide.next().length) {
+            bottom_next_image = activeSlide.next().find('img');
+        } else {
+            bottom_next_image = $('#bottomCarousel .carousel-inner').children().first().find('img');
+        }
+        // console.log("bottom_next_image : ",bottom_next_image);
+        console.log("bottom product_name is:",bottom_next_image.data("name"));
+        $(".bottom-product-name").text(bottom_next_image.data("name"));
+        $(".bottom-product-price").text(" -"+currencySymbol+bottom_next_image.data("price"));
+        var bottom_product_id = top_next_image.data("id");
+        if(product_data instanceof Array){
+            for(var i=0;i<product_data.length ;i++){
+                if(product_data[i]["product_id"] == bottom_product_id){                    
+                    if(shopify_products["products"] instanceof Array){
+                        for(var k=0;k<=shopify_products.products.length ;k++){
+                            if(bottom_product_id == shopify_products.products[k]["id"]){
+                                console.log("name : ",shopify_products.products[k]["title"]);
+                                var values = shopify_products.products[k]["options"][0]["values"];
+                                console.log("values are :",values);
+                                var html= "";
+                                for(var v= 0 ;v<values.length;v++){
+                                    html = html +'<li><a class="dropdown-item" href="#">'+values[v]+'</a></li>';
+                                }
+                                $(".bottom-size-dropdown").html("");
+                                $(".bottom-size-dropdown").html(html);
+
+
+                                var colors = shopify_products.products[k]["options"][1]["values"];
+                                var variants = shopify_products.products[k]["variants"];
+                                console.log("values are :",values);
+                                var html= "";
+                                for(var c= 0 ;c<colors.length;c++){
+                                    var color = colors[c];
+                                    for(var v_count=0 ;v_count<variants.length;v_count++){
+                                        if(variants[v_count]["option2"] == color){
+                                            html = html +'<button type="button" class="btn bottom-btn1" onclick="change_bottom_variant(' + variants[v_count]["id"]+","+variants[v_count]["product_id"] + ');"></button>';
+                                            break;
+                                        }
+                                        
+                                    }                                    
+                                }
+                                $("#bottom-btn-group").html("");
+                                $("#bottom-btn-group").html(html);
+                                break;
+                                break;
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+    })
+       
+
+    function change_top_variant(variant_id,product_id){
+        console.log("change variants,",variant_id,product_id);
+        // 
+        console.log($("#topCarousel").html());
+        var top_carousel_html =$("#topCarousel");
+        var img = top_carousel_html.find("#top-"+product_id.toString()).find(".img-"+product_id.toString());
+        console.log("image is :",img.attr("src"));
+        var html = '';
+        var div_count = 0;
+        var change_imge_count = 0
+        $("#topCarousel").carousel("pause").removeData();
+        // var html = html+'<div class="carousel-inner w-100" role="listbox">';
+        if(product_data instanceof Array){
+            for(var i = 0;i< product_data.length ;i++){
+                if(product_data[i]['product_type'] =="tops"){
+                    if(product_id == product_data[i]['product_id']){
+                        console.log("product id found");
+                        for(var k=0;k<shopify_products.products.length;k++){
+                            if(product_id == (shopify_products.products[k]["id"]).toString()){
+                                console.log("product id found in shopify");
+                                images = shopify_products.products[k]["images"];
+                                for(image_count = 0;image_count<images.length;image_count++){
+                                    var variant_ids = images[image_count].variant_ids;
+                                    console.log("variant_ids :",variant_ids);
+                                    console.log("variant_id :",typeof variant_id);
+                                    for (var vi = 0;vi< variant_ids.length;vi++){
+                                        if(variant_id == (variant_ids[vi]).toString()){
+                                            console.log("Found image..",images[image_count]['src']);
+                                            top_carousel_html.find("#top-"+product_id.toString()).find(".img-"+product_id.toString()).attr("src",images[image_count]['src']);
+                                            var img = top_carousel_html.find("#top-"+product_id.toString()).find(".img-"+product_id.toString());
+                                            console.log("image is :",img.attr("src"));
+                                            // html = html +'<div class="carousel-item"><div class="d-block col-4"><img class="d-block slide-image img-fluid" src="'+images[image_count]['src']+' " data-type="'+product_data[i]['product_type']+'"                        data-name="'+product_data[i]['product_name']+'" data-price="'+product_data[i]['product_price']+'" data-variant="'+variant_id+'" data-id="'+product_data[i]['product_id']+'" alt="Generic placeholder thumbnail"><div></div>';
+                                            // change_imge_count = div_count;
+                                            // div_count++;
+                                            
+                                        }
+                                        break
+                                    }
+                                        
+                                }
+                                break;
+                            }
+                        }
+
+                        
+                    }
+                    // else{
+                    //     html = html +'<div class="carousel-item"><div class="d-block col-4"><img class="d-block slide-image img-fluid" src="'+product_data[i]['img']+' " data-type="'+product_data[i]['img']+'" data-name="'+product_data[i]['product_name']+'" data-price="'+product_data[i]['product_price']+'" data-variant="'+product_data[i]['variantId']+'" data-id="'+product_data[i]['product_id']+'" alt="Generic placeholder thumbnail"><div></div>';
+                    //     div_count++
+                    // }
+                }
+                
+            }
+        }
+        // html = html+"</div>"; 
+        console.log("top carousel :",top_carousel_html.html());
+        // var top_carousel_html =$("#topCarousel .carousel-inner");
+        // $('#topCarousel .carousel-inner').html("");
+        $('#topCarousel').html(top_carousel_html.html());
+        $('#topCarousel').carousel({interval:false});
+        // $('#topCarousel .carousel-inner .carousel-item').first().addClass('active');
+         
+
+    }
+
+            $(".buy-button").click(function () {
+                console.log("top product_name is:",top_next_image);
+                console.log("bottom product_name is:",bottom_next_image);
+                var top_variant_id = top_next_image.data("variant");
+                var bootom_variant_id = bottom_next_image.data("variant");
+                console.log("top and bottom ids: ",top_variant_id,bootom_variant_id);
+                if (top_variant_id) {
+                    var param = {
+                        "quantity": 1,
+                        "id": top_variant_id
+                                //id: 1526932635677
+                                };
+                                console.log(param);
+                                $.ajax({
+                                type: "POST",
+                                url: 'https://daquini-store.myshopify.com/cart/add.js',
+                                data: param,
+                                dataType: 'json',
+                                crossDomain: true,
+                                success: function () {
+                                console.log('successs.....');
+                                //clearCanvas();
+                                window.location = 'https://daquini-store.myshopify.com/cart';
+                                }
+                                });
+                                }
+
+
+                                if (bootom_variant_id) {
+                                var param = {
+                                "quantity": 1,
+                                "id": bootom_variant_id
+                                //id: 1526932635677
+                                };
+                                console.log(param);
+                                $.ajax({
+                                type: "POST",
+                                url: 'https://daquini-store.myshopify.com/cart/add.js',
+                                data: param,
+                                dataType: 'json',
+                                crossDomain: true,
+                                success: function () {
+                                console.log('successs.....');
+                                //clearCanvas();
+                                window.location = 'https://daquini-store.myshopify.com/cart';
+                                }
+                                });
+                                }
+
+                                // $.post('/cart/add.js', {
+                                // quantity: 1,
+                                // id: top_objects.productID
+                                // });
+                                });
+                                </script>
+    </body>
+
+</html>

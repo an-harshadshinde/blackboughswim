@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="Jozi-Mix and Match">
+    <meta name="keywords" content="mixmatch, mix & match, mixandmatch">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self'; style-src 'self' 'unsafe-inline' http: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' http: https:">
+
+    <title>Add Wizard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.3.3/fabric.js"></script> -->
+    <script src="public/javascripts/fabric.js-master/dist/fabric.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.17/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css">
+
+    <link href="public/javascripts/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="public/javascripts/jquery-toast-plugin/src/jquery.toast.css" rel="stylesheet">
+    <!-- <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css"
+            rel="stylesheet"> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="public/javascripts/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
+    <script src="public/javascripts/jquery-toast-plugin/src/jquery.toast.js"></script>
+    <!-- <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script> -->
+
+    <!-- <script src="public/javascripts/html2canvas.min.js"></script> -->
+    <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/add_backend_wizard.css">
+    <script type="text/javascript">
+      // ShopifyApp.init({
+      //   apiKey: '<%= api_key %>',
+      //   shopOrigin: 'https://<%= shop %>',
+      //   debug: false,
+      //   forceRedirect: true
+      // });
+      // ShopifyApp.ready(function () {
+      //   ShopifyApp.Bar.initialize({
+      //     title: '<%= title %>',
+      //     icon: 'public/images/logo.png',
+      //   });
+      //   ShopifyApp.Bar.loadingOff();
+      // });
+    </script>
+    <style>
+      #example_length {
+        display: none;
+      }
+
+      #example_filter {
+        display: none;
+      }
+
+      .nav-item a {
+        color: white;
+        padding: 20px;
+        font-size: 14px;
+        text-decoration-line: none;
+        text-decoration-style: none;
+      }
+
+      .breadcrumb-data {
+        background-color: white;
+      }
+
+      .breadcrumb-item a {
+        color: grey;
+      }
+
+      .panel-body {
+        padding: 30px;
+      }
+
+      .support {
+        padding: 10px;
+        background-color: #e6ebff;
+        margin-bottom: 15px;
+      }
+
+      h5 {
+        font-size: 14px;
+      }
+
+      p {
+        margin: 0 0 10px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <!-- A grey horizontal navbar that becomes vertical on small screens -->
+      <!-- <nav aria-label="breadcrumb" class="breadcrumb-data">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Mix&Match</a>
+                </li>
+                <li class="breadcrumb-item active">Products</li>
+            </ol>
+        </nav> -->
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="public/images/logo.png" alt="logo" style="width:30px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="/">
+                <img src="public/images/ic-home.png" width="20px" /> HOME</a>
+            </li>
+            <li class="nav-item">
+              <a href="/instructions">
+                <img src="public/images/ic-instructions.png" width="20px" /> INSTRUCTIONS</a>
+            </li>
+          </ul>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+      <!-- <div class="content-heading">
+          <span class="title">Instructions</span>
+        </div> -->
+      <!-- <div class="row breadcrumbs">
+        <div class="col-md-12">
+          <img src="public/images/ico-1.png" />
+          <span class="title">Instructions</span>
+        </div>
+      </div> -->
+
+      <div id="panelDemo9" class="panel panel-primary">
+        <div class="instruction panel-body">
+          <div class="support">
+            <h5>Below are the instructions for using Jozi - Mix & Match app. If you still need any help contact us at
+              <a href="mailto:mobile@applicationnexus.com">mobile@applicationnexus.com</a>
+            </h5>
+          </div>
+
+          <h3>Ideal Image Size </h3>
+          <p>In new version we are mainly focusing on
+            <strong>Top</strong> and
+            <strong>Bottom</strong> mix match, we recommend using images that are :
+            <p>square at least
+              <strong>700 x 700px</strong> in resolution for
+              <strong>TOPS</strong> or similar aspect ratio</p>
+            <p>and at least
+              <strong>700 x 970px</strong> in resolution or similar aspect ration for
+              <strong>BOTTOMS</strong>.</p>
+          </p>
+
+
+          <p>Now that you have installed the app, the best place to start with would be to navigate to the Home tab and start
+            setting up Jozi wizard for your store. Here are the instructions to start with :</p>
+
+          <h3>Add Categories</h3>
+          <p>Add categories will add parent categories to your Builder like : Men, Women, Kids etc. All you have to do is enter
+            <strong>Category Name</strong>,
+            <strong>Description</strong> and hit
+            <strong>ADD CATEGORY</strong> button. You can add any numbers of Categories, Edit them and even remove them from your
+            builder whenever you feel like. </p>
+          <!--<img src="public/images/screen-1.png" class="img-responsive" alt="Add Categories">-->
+          <br>
+
+          <h3>Add Products</h3>
+          <p>After adding parent categories, you can navigate to next step i.e. Add Products. Add products will add Products
+            to your builder.</p>
+          <br>
+
+          <h4>Things to Remember :</h4>
+          <p>The products to be added in the product builder is divided into
+            <strong>TOP</strong> and
+            <strong>BOTTOMS</strong> for each type of category. If you select Category for example : MEN, the TOPS and BOTTOMS from
+            the list of products should be selected for the category “MEN”. If there will be no products selected for BOTTOMS,
+            you will not be able to see any products in the BOTTOM section of the preview page.</p>
+
+          <h4>Steps to follow :</h4>
+          <p>
+            <strong>Step 1 :</strong> Tap
+            <strong>“ADD PRODUCTS”</strong>, a new page will open.
+          </p>
+          <p>
+            <strong>Step 2 :</strong> Select Category (categories you have added in first step), Select Type i.e, TOP or BOTTOM and
+            then add products to the selected category and by clicking on
+            <strong>“Browse”</strong> option.</p>
+          <p>
+            <strong>Step 3 :</strong> Click on Add.</p>
+          <br>
+
+          <h3>Edit Settings</h3>
+          <p>This step will allow you to customize look and feel of your Mix & Match builder. You can change Page Title, Page
+            title color, button color and more. Don’t forget to click the
+            <strong>“Save”</strong> button before proceeding to the next step.</p>
+          <br>
+
+          <h3>Add Discounts</h3>
+          <p>Create discount and sales within your
+            <strong>Jozi - Mix & Match</strong> wizard. All you have to do is press
+            <strong>Create Discount</strong>, create coupon, select discount Type (Fixed price, Percentage or Free shipping) and
+            apply that discount to your collections or selected products.</p>
+          <p>Additionally you can Edit/Delete discount whenever you wish to.</p>
+          <br>
+
+          <h3>Preview</h3>
+          <p>Great! All done.</p>
+          <p>Now just preview the builder on your site.</p>
+          <br>
+
+          <h3>How to Add Builder on Your Site?</h3>
+          <p>To view builder on your site go the link
+            <a href="https://<%=shop %>/apps/builder" target="_blank">
+              <strong>https://
+                <%=shop %>/apps/builder</strong>
+            </a>, where "shop" is your store name.</p>
+          <br>
+
+          <h3>How Builder Works on The Site?</h3>
+          <p>You can simply select the Main category, sub category and product and place it on the canvas.</p>
+          <img src="public/images/boarding-screen.png" width="100%" /></a>
+          <p></p>
+          <p>
+            <strong>Step 1 :</strong> Select Main Category.</p>
+          <p>
+            <strong>Step 2 :</strong> Select Type that is
+            <strong>TOP</strong> or
+            <strong>BOTTOM</strong>.</p>
+          <p>
+            <strong>Step 3 :</strong> Click the product you wish to add to the canvas.</p>
+          <p>
+            <strong>Step 4 :</strong> A popup will open, Select
+            <strong>“Add”.</strong>
+          </p>
+          <p>
+            <strong>Step 5 :</strong> Drag items anywhere in the canvas to adjust with other items.</p>
+          <p>
+            <strong>Step 6 :</strong> Click “Buy Now” to add product in your cart.</p>
+
+          <p>You can remove products from the
+            <strong>TOP</strong> or
+            <strong>BOTTOM</strong> canvas by clicking button on top that says
+            <strong>“Start Again”</strong> or simply select the new product from TOP or BOTTOM.</p>
+          <br>
+          <p style="text-align: center;">Need any help? Contact us at
+            <a href="mobile@applicationnexus.com">mobile@applicationnexus.com</a>
+          </p>
+          <br>
+
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </body>
+
+</html>

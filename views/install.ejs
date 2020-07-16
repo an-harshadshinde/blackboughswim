@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="description" content="Jozi-Mix and Match">
+        <meta name="keywords" content="mixmatch, mix & match, mixandmatch">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self'; style-src 'self' 'unsafe-inline' http: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' http: https:">
+
+        <title>Install | Jozi-Mix and Match</title>
+
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/functions.js"></script>
+
+        <script src="https://cdn.shopify.com/s/assets/external/app.js"></script>
+        <script type="text/javascript">
+            // ShopifyApp.ready(function() {
+            //     ShopifyApp.Bar.initialize({
+            //         title: '<%= title %>',
+            //         icon: 'assets/images/logo.png',
+            //     });
+            //     ShopifyApp.Bar.loadingOff();
+            // });
+        </script>
+    </head>
+
+    <body class="install-wrapper">
+        <div class="content-heading">
+            Jozi - Mix And Match App
+        </div>
+        <div class="container-fluid" style="padding-top:15%;">
+            <div class="row text-center align-middle">
+                <div class="col-md-12">
+                    <!-- <img src="/assets/images/logo.png" /> -->
+                    <!-- <p class="lead">
+                    Jozi - Mix And Match
+                </p> -->
+                    <p class="lead">Enter the your myshopify shop name (don't include https:// or www.)</p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <form class="form-inline" action="/shopify" method="GET">
+                        <div class="form-group" id="formDiv">
+                            <div class="input-group">
+                                <input type="text" id="shop" name="shop" class="form-control input-lg" placeholder="Enter shop name" value="<% if(shop){%><%=shop%><%}%>">
+                                <div class="input-group-addon" style="border-left: 0;">.myshopify.com</div>
+                            </div>
+                        </div>
+                        &nbsp;&nbsp;
+                        <button type="submit" id="installBtn" class="btn btn-warning btn-lg">Install or Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

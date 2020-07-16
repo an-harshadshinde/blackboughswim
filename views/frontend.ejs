@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blackboughswim - Mix & Match</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="Jozi-Mix and Match">
+    <meta name="keywords" content="mixmatch, mix & match, mixandmatch">
+
+    <link rel="stylesheet" type="text/css" href="<%=remote_url%>/public/stylesheets/frontend.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <script type="text/javascript">
+        var shopdata = <%-JSON.stringify(shopdata)%> ;
+        var currencySymbol = <%-JSON.stringify(currencySymbol)%> ;
+        var settings = <%-JSON.stringify(settings)%> ;
+        var kits = <%-JSON.stringify(kits)%> ;
+        var styles = <%-JSON.stringify(styles)%> ;
+        var collections = <%-JSON.stringify(collections)%> ;
+        var products = <%-JSON.stringify(products)%> ;
+        var shopInfo = <%-JSON.stringify(shopInfo)%> ;
+        currencySymbol = shopInfo.shop.currency;
+        // console.log('settings :', settings);
+        // console.log('kits :', kits);
+        // console.log('styles :', styles);
+        // console.log('collections :', collections);
+        // console.log('products :', products);
+        // console.log('shopInfo: ', shopInfo);
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row builder-container">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 builder-slide-container">
+                <div class="slide-container" style="background-color: <%=settings.placeholderbgColor%>">
+                    <div class="select-top-text">
+                        <p style="color: <%=settings.placeholderTextColor%>"><%=settings.topText%></p>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="top-product-slider-container">
+                        <div class="top-product-slider"></div>
+                    </div>
+                    <div class="bottom-product-slider-container">
+                        <div class="bottom-product-slider"></div>
+                    </div>
+                    <div class="select-bottom-text">
+                        <i class="fa fa-chevron-up"></i>
+                        <p style="color: <%=settings.placeholderTextColor%>"><%=settings.bottomText%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 builder-details-container">
+                <div class="row builder-head-text-container">
+                    <div class="col-12">
+                        <h3>Mix & Match your bikini</h3>
+                        <hr />
+                    </div>
+                </div>
+                <div class="row kit-head-text-container">
+                    <div class="col-12"></div>
+                </div>
+                <div class="top-bottom-head-container">
+                    <div class="row">
+                        <div class="col-6 tops-select-container">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tops
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <div class="row selected-items-container"></div>
+                                    <hr />
+                                    <div class="row selection-container"></div>
+                                    <hr />
+                                    <div class="row buttons-container">
+                                        <div class="col-6">
+                                            <a href="javascript:void(0)" class="done-btn">Done</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="javascript:void(0)" class="reset-btn pull-right"><i class="fa fa-refresh"></i> Reset</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 bottoms-select-container">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Bottoms
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <div class="row selected-items-container"></div>
+                                    <hr />
+                                    <div class="row selection-container"></div>
+                                    <hr />
+                                    <div class="row buttons-container">
+                                        <div class="col-6">
+                                            <a href="javascript:void(0)" class="done-btn">Done</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="javascript:void(0)" class="reset-btn pull-right"><i class="fa fa-refresh"></i> Reset</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+                <div class="top-style-details-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>
+                                <span class="collection-title"></span>
+                                <span class="product-price"></span>
+                            </h3>
+                            <p class="product-color">
+                                <span>Color: </span>
+                                <span class="color-text"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 swatch-container"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 size-container">
+                            <p>Size</p>
+                            <div class="col-12 size-variants"></div>
+                            <!--<div class="col-4 size-chart"></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-style-details-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>
+                                <span class="collection-title"></span>
+                                <span class="product-price"></span>
+                            </h3>
+                            <p class="product-color">
+                                <span>Color: </span>
+                                <span class="color-text"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 swatch-container"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 size-container">
+                            <p>Size</p>
+                            <div class="col-12 size-variants"></div>
+                            <!--<div class="col-4 size-chart"></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row buy-btn-container">
+                    <button id="buy-btn" class="btn btn-lg buy-btn" style="color: <%=settings.placeholderbuyBtnTextColor%> !important;background-color: <%=settings.placeholderbuyBtnBgColor%> !important;">
+                        <span><%=settings.placeholderbuyButtonText%> - </span>
+                        <span class="btn-price-text"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container interim-container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">Mix & Match Your Bikini</h1>
+                <div class="interim-tops-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-center">Select Your Tops</h3>
+                            <div class="text-right mb-3">
+                                <input type= "checkbox" id="style_all_select" name="style_all_select" class = "checkbox-custom"><label for="style_all_select" class="checkbox-custom-label select-all-label" >Select all styles</label>
+                            </div>
+                            <div class="style-selection-container"></div>
+                            <div class="text-center">
+                                <button class="btn btn-dark btn-lg next-btn">NEXT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="interim-bottoms-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-center">Select Your Bottoms</h3>
+                            <div class="text-right mb-3">
+                                <input type= "checkbox" id="style_all_select" name="style_all_select" class = "checkbox-custom"><label for="style_all_select" class="checkbox-custom-label select-all-label" >Select all styles</label>
+                            </div>
+                            <div class="style-selection-container"></div>
+                            <div class="text-center">
+                                <button class="btn btn-dark btn-lg back-btn pull-left">BACK</button>
+                                <button class="btn btn-dark btn-lg continue-btn pull-right">CONTINUE TO BUILDER</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="snackbar"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="<%=remote_url%>/public/javascripts/slick.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=remote_url%>/public/javascripts/frontend.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Aedesty';
+  src: url('../fonts/Aedesty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'leaguespartan-bold';
+  src: url('../fonts/leaguespartan-bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stolzl-Medium';
+  src: url('../fonts/Stolzl-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url('../fonts/Montserrat-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stolzl-Book-Regular';
+  src: url('../fonts/Stolzl-Book.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stolzl-Book-Light';
+  src: url('../fonts/Stolzl-Book.woff2') format('woff2');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stolzl-Book-SemiBold';
+  src: url('../fonts/Stolzl-Book.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Larsseit-Regular';
+  src: url('//cdn.shopify.com/s/files/1/1219/5720/t/240/assets/Larsseit.woff2?v=11652131435742072800') format('woff2');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}

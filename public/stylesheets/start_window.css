@@ -1,0 +1,317 @@
+html,
+body {
+    max-width: 100%;
+    max-height: 100%;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.container {
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+}
+
+.main-row {
+    border-bottom: 2px solid #ececec;
+    border-bottom-color: #ececec;
+    width: 100%;
+    margin-left: 0px;
+}
+
+.main-col {
+    border-right: 2px solid #ececec;
+    border-right-color: #ececec;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.btn-primary {
+    border: none;
+}
+
+/* .new-open-btn-class {
+    margin: auto;
+} */
+
+.btn {
+    border-radius: 2px;
+}
+
+#btn-group1 {
+    margin: 10px;
+}
+
+#btn-group1 button {
+    cursor: pointer;
+    float: left;
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+    margin: auto;
+}
+
+.new-btn {
+    background-color: #f7f7f7;
+    color: #6c6c6c;
+    width: 100px;
+}
+
+.open-btn {
+    background-color: #f7f7f7;
+    border: 1px solid #2a2a2a;
+    color: #2a2a2a;
+}
+
+.text-group {
+    margin: 10px;
+}
+
+.price-text {
+    text-decoration: none;
+    width: 80px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#buy-button {
+    float: right;
+    background-color: #5b5b5b;
+    color: white;
+    width: 90px;
+    height: 35px;
+    font-family: verdana;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+/* .category-main-class {
+    border-left: 2px solid #ececec;
+    border-left-color: #ececec;
+} */
+
+.product-class {
+    border-bottom: 2px solid #ececec;
+    border-bottom-color: #ececec;
+    margin-top: 3px;
+}
+
+.category {
+    text-align: center;
+    margin: 10px;
+}
+
+#dropdownMenuButton {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    width: 80px;
+    margin: auto;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    margin: auto;
+}
+
+.text-class {
+    margin-top: 30%;
+    text-align: center;
+    padding: 20px;
+}
+
+.main-text {
+    font-family: 'Dancing Script', cursive;
+    color: #8b8b8b;
+    line-height: normal;
+    font-size: 28px;
+}
+
+.event-text1 {
+    font-family: 'Quicksand', sans-serif;
+    color: #8b8b8b;
+    line-height: normal;
+    font-size: 21px;
+}
+
+#btn-group2 {
+    margin: auto;
+}
+
+#btn-group2 button {
+    border: none;
+    cursor: pointer;
+    width: 90px;
+    height: 40px;
+    vertical-align: middle;
+    margin: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* 
+#top-button {
+    background-color: #2a2a2a;
+    color: #dfdfdf;
+}
+
+#bottom-button {
+    background-color: white;
+    color: #7a7a7a;
+} */
+
+#search-input-group {
+    float: left;
+    width: 76%;
+    margin-left: 10px;
+}
+
+#search-input {
+    height: 40px;
+    width: 88%;
+    padding: 10px;
+}
+
+.search-button {
+    width: 40px;
+}
+
+.btn-secondary {
+    height: 40px;
+    border: 1px solid #ececec;
+    background-color: #ececec;
+}
+
+#price-dropdown {
+    /* margin-left: 5px; */
+    float: right;
+}
+
+#price-dropdownButton {
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+}
+
+#image-group {
+    margin-top: 20px;
+    margin-left: 1px;
+    height: 40%;
+    width: 100%;
+    float: left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.image-class {
+    float: left;
+    padding: 5px;
+    cursor: pointer;
+    height: auto;
+}
+
+/* width */
+
+#image-group::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+
+#image-group::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #f3f3f3;
+    border-radius: 10px;
+}
+
+/* Handle */
+
+#image-group::-webkit-scrollbar-thumb {
+    background: #12e5b6;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+
+#image-group::-webkit-scrollbar-thumb:hover {
+    background: #12e5b6;
+}
+
+/*#image-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+*/
+
+/* Create two equal columns that sits next to each other */
+
+#image-col {
+    flex: 20%;
+    padding: 0 4px;
+}
+
+/*
+#image-col img {
+  margin : auto;
+  vertical-align: middle;  
+  width: 100%;
+  padding: 10px;
+   
+  height: 70%;
+}*/
+
+.img-responsive {
+    width: 100%;
+    height: 130px;
+    padding: 6px;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 700px) {
+    .main-col {
+        padding-bottom: 10%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    #search-input-group {
+        width: 60%;
+    }
+    #search-input {
+        width: 70%;
+    }
+    #btn-group1 button {
+        cursor: pointer;
+        float: left;
+        width: 110px;
+        height: 35px;
+        font-size: 14px;
+        margin: auto;
+        font-family: 'Quicksand', sans-serif;
+        border: 1px solid #c5c5c5;
+    }
+    .price-text {
+        margin-right: 0px;
+        font-size: 18px;
+        width: 50px;
+    }
+    main-row {
+        border-top: 2px solid #ececec;
+        margin-top: 12px;
+    }
+}

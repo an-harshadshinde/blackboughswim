@@ -1,0 +1,9 @@
+{
+  "oauth": {
+    "api_key": "8f86236eaf5b9df33a4155f449efc0f8",
+    "client_secret": "99c0955b2eaadf4155eb6ac9364633eb",
+    "redirect_uri": "https://blackboughswim.applicationnexus.com/user_authentication/callback",
+    "scope": "read_products,write_products,read_script_tags,write_script_tags,read_themes,write_themes,read_price_rules,write_price_rules"
+  },
+  "app_url": "https://blackboughswim.applicationnexus.com/"
+}

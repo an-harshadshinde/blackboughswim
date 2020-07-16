@@ -1,0 +1,6 @@
+_id,shop,kit_name,description,image,show_name,show_description,show_filters,styles
+5dba8cd08e9ee45c15c24bf6,"jozidevdemostore","test1","test","kit_kahtct8ctb14.jpg","show","show",FALSE,"[""5db2da8c02a36d4a4811e820"",""5db2e35f7098d44d7aa85493"",""5db2e4ed8fc0974e3587980c"",""5db9337ac976d61a0a422570"",""5db934dbac03671a53519b9b""]"
+5dc2d1f94d04ee7922f8c530,"jozidevdemostore","Animal Print","This is the kit for animal print top and bottoms.","","show","show",FALSE,"[""5db2da8c02a36d4a4811e820"",""5dc924a16e2cbd15b46a0e60"",""5dc93bed60221019687b5276""]"
+5dba8e6d033aa85d0b6de52e,"jozidevdemostore","kit1","This is test","kit_mb0vmxolkvk3.jpg","show","show",TRUE,"[""5db2e35f7098d44d7aa85493"",""5db2e4ed8fc0974e3587980c""]"
+5de609a40dee865ea0a34e3c,"jozidevdemostore","Kit123","This is test kit","kit_oxi9ar9y0wtt.jpg","show","show",FALSE,"[""5db2da8c02a36d4a4811e820"",""5db2e35f7098d44d7aa85493"",""5db2e4ed8fc0974e3587980c"",""5db9337ac976d61a0a422570"",""5dc924a16e2cbd15b46a0e60"",""5dc93bed60221019687b5276""]"
+5de618f63794a562f512d934,"jozidevdemostore","Test Kit","This is test kit by yogesh","","show","show",FALSE,"[""5de618703794a562f512d92f"",""5de618c03794a562f512d932""]"

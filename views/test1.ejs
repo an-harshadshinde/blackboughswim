@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Daquini Shopify App</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="description" content="Jozi-Mix and Match">
+        <meta name="keywords" content="mixmatch, mix & match, mixandmatch">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> -->
+       
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/daquini_builder.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+        <!-- <script type="text/javascript">
+            var $j = $.noConflict();
+        </script> -->
+
+        <!-- <script type="text/javascript">
+            var $j = $.noConflict();
+        </script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                    
+        
+        <script type="text/javascript">
+            var shopify_products = <%-JSON.stringify(s_product) %> ;
+
+            var product_data = <%-JSON.stringify(productData)%> ;
+            var currencySymbol = <%-JSON.stringify(currencySymbol)%>;
+            var colors_data = <%-JSON.stringify(colors_data)%> ;
+            // var currencySymbol = "€ ";
+        </script>
+        <script src="/public/javascripts/daquini_builder.js"></script>
+
+        <style>
+        .image-col{
+            background-color:<%=settings[0].placeholderbgColor%>
+        }
+        .top-pick p{
+            color:<%=settings[0].placeholderTextColor%>
+        }
+        .bottom-pick p{
+            color:<%=settings[0].placeholderTextColor%>
+        }
+
+        body {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        right: 5px;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="daquini-container">
+            <div class="row">    
+                <div class="col-12  kit-name-col1">                              
+                    <span class="kit-name"> <%=kits['kit_name']%></span>        
+                </div>
+                <div class="col-12 drop-down-col">
+                    <div class="row">
+                        <div class="col-4 drop-down-btn">
+                            <button class="btn btn-secondary dropdown-toggle drop-down-group" type="button" id="product-type-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </button>
+                                <ul class="dropdown-menu product-type-dropdown" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Top</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Bottom</a>
+                                    </li>
+                                </ul>
+                        </div>
+                        <div class="col-4 drop-down-btn">
+                            <button class="btn btn-secondary dropdown-toggle drop-down-group" type="button" id="size-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+                                <ul class="dropdown-menu size-dropdown" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <a class="dropdown-item" href="#">S</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">M</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">L</a>
+                                    </li>
+                                </ul>
+                        </div>
+                        <div class="col-4 drop-down-btn">
+                            <button class="btn btn-secondary dropdown-toggle drop-down-group" type="button" id="color-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Color </button>
+                                <ul class="dropdown-menu color-dropdown" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <a class="dropdown-item" href="#">S</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">M</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">L</a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>            
+                <div class="col-md-8 col-12 image-col">
+                    <div class="row slide-row">
+                        <div class="col-md-12 col-12 top-pick text-center">
+                            <p><%=settings[0].topText%></p>
+                            <span><img src="/public/images/top_arrow.png" style="width
+                            :20px;"></span>
+                        </div>
+
+                        <div class="col-md-12 top-container-col">
+                            <div class="top-slider text-center">
+                               <%if(productData instanceof Array){%>
+                                <%var k=0%>
+                                <%for(var i=0;i<productData.length;i++){%>
+                                <%if(productData[i]["product_type"] == "tops"){%>
+                                <div class="top-image-data">
+                                    <img src="<%=productData[i]['img']%>"
+                                        data-type="<%=productData[i]['product_type']%>"
+                                        data-name="<%=productData[i]['product_name']%>"
+                                        data-price="<%=productData[i]['product_price']%>"
+                                        data-variant="<%=productData[i]['variantId']%>"
+                                        data-id="<%=productData[i]['product_id']%>" alt='Generic placeholder thumbnail'
+                                        class="img-<%=productData[i]['product_id']%>">
+                                </div>
+                                <%k++%>
+                                <%}%>
+                                    <%}%>
+                                    <%if(k == 3){%>
+
+                                    <%for(var j=0;j<1;j++){%>
+                                        <div class="top-image-data">
+                                        </div>                  
+                                    <%}%>                 
+                                    <%}else if(k == 2){%>
+                                        <%for(var j=0;j<2;j++){%>
+                                        <div class="top-image-data">
+                                        </div>                  
+                                    <%}%>                 
+                                    <%}else if(k==1){%>
+                                        <%for(var j=0;j<3;j++){%>
+                                        <div class="top-image-data">
+                                        </div>                  
+                                    <%}%>                 
+                                    <%}%>
+                                <%}%>
+                                
+                                <!-- <div class="top-image-data">
+                                    <img src="/uploads/Athena-top2.png">
+                                </div> -->
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 bottom-container-col">
+                            <div class="bottom-slider text-center">
+                                <%if(productData instanceof Array){%>
+                                <%var k=0%>
+                                <%for(var i=0;i<productData.length;i++){%>
+                                <%if(productData[i]["product_type"] == "bottoms"){%>
+                                <div class="bottom-image-data">
+                                    <img src="<%=productData[i]['img']%>"
+                                        data-type="<%=productData[i]['product_type']%>"
+                                        data-name="<%=productData[i]['product_name']%>"
+                                        data-price="<%=productData[i]['product_price']%>"
+                                        data-variant="<%=productData[i]['variantId']%>"
+                                        data-id="<%=productData[i]['product_id']%>" alt='Generic placeholder thumbnail'
+                                        class="img-<%=productData[i]['product_id']%>">
+                                </div>
+                                <%k++%>
+                                <%}%>
+                                    <%}%>
+                                   <%if(k == 3){%>
+
+                                    <%for(var j=0;j<1;j++){%>
+                                        <div class="bottom-image-data">
+                                        </div>                  
+                                    <%}%>                 
+                                    <%}else if(k == 2){%>
+                                        <%for(var j=0;j < 2;j++){%>
+                                        <div class="bottom-image-data">
+                                        </div>                  
+                                    <%}%>                 
+                                    <%}else if(k==1){%>
+                                        <%for(var j=0;j<3;j++){%>
+                                        <div class="bottom-image-data">
+                                        </div>                  
+                                    <%}%>                 
+                                    <%}%>
+                                <%}%>
+                                
+                                <!-- <div class="top-image-data">
+                                    <img src="/uploads/Athena-top2.png">
+                                </div> -->
+                            </div>   
+                           
+                        </div>
+                        <div class="col-12 bottom-pick text-center">
+                            <span><img src="/public/images/bottom_arrow.png" style="width
+                                :20px;"></span>
+                            <p><%=settings[0].bottomText%></p>                            
+                        </div>
+                                            
+                    </div>
+                </div>                                
+                <div class="col-md-4 col-12 details-col">
+                    <div class="row kit-details">
+                        <div class="col-12  kit-name-col">                              <span class="kit-name"> <%=kits['kit_name']%></span>        
+                        </div>
+                        <div class="col-12 kit-desc-col1">
+                                <p class="kit-desc"><%=kits['description']%></p>
+                        </div>
+                        <%# <div class="col-12" style="margin-top:3%;font-size: 12px;">
+                            <span style="color:grey">
+                                Fabric :
+                            </span>
+                            <span style="color: #8e8e8e;">
+                                FRANCE |
+                            </span>
+                            <span style="color:grey">
+                                Designed & Made in :
+                            </span>
+                            <span style="color:#8e8e8e">
+                                EUROPE
+                            </span>
+                        </div> %>
+                        <div class="col-12 top-product-details">
+                                <%if(productData instanceof Array){%>
+                                <%for(var i=0;i<productData.length;i++){%>
+                                <%if(productData[i]["product_type"] == "tops"){%>
+                                <div class="top-product-name"><%=productData[i]['product_name']%>&nbsp;</div>
+                                <span class="top-product-price">-
+                                    <%=currencySymbol%><%=productData[i]['product_price']%></span>
+                                <%break%>
+                                <%}%>
+                                    <%}%>
+                                <%}%>
+                                        
+                        </div>
+                        <div class="col-12 top-color-details" style="margin-top:5%;">
+                            <div class="btn-group" id="top-btn-group" role="group">
+                                        <button type="button" class="btn top-btn1"></button>
+                                        <button type="button" class="btn top-btn2"></button>
+                                        <button type="button" class="btn top-btn3"></button>
+                                        <button type="button" class="btn top-btn4"></button>
+                                        <button type="button" class="btn top-btn5"></button>
+                            </div>
+                        </div>
+                        <div class="col-12 top-size-details" style="margin-top:5%;padding:0">
+                            <!-- <div class="dropdown-class"> -->
+                            <!-- <div class="dropdown size"> -->
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="topdropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size </button>
+                            <ul class="dropdown-menu top-size-dropdown" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" href="#">L</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">M</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">S</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">XS</a>
+                                </li>
+                            </ul>                            
+                        </div>                       
+                        <br />
+                        <div class="col-12" style="padding-right:10%;"><hr style="width:100%;margin-right:2%"></div>
+                        <div class="col-12 bottom-product-details">
+                            <div class="bottom-product-name">3/4 Two-Tone Leggings&nbsp;</div>
+                            <span class="bottom-product-price">- Rs.129.00</span>
+                        </div>
+                        <div class="col-12 bottom-color-details" style="margin-top:5%;">
+                            <div class="btn-group" id="bottom-btn-group" role="group">
+                                <button type="button" class="btn top-btn1" style="background-color: charcoal"></button>
+                                <button type="button" class="btn top-btn2"></button>
+                                <button type="button" class="btn top-btn3"></button>
+                                <button type="button" class="btn top-btn4"></button>
+                                <button type="button" class="btn top-btn5"></button>
+                            </div>
+                        </div>
+                        <div class="col-12 bottom-size-details" style="margin-top:5%;padding:0;">
+                            <!-- <div class="dropdown-class"> -->
+                            <!-- <div class="dropdown size"> -->
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="bottomdropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size </button>
+                            <ul class="dropdown-menu bottom-size-dropdown" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" href="#">L</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">M</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">S</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">XS</a>
+                                </li>
+                            </ul>                                     
+                        </div>
+                        <div class="col-12 buy-button-col" style="margin-top:10%;margin-bottom: 10%;">
+                            <button class="btn-secondary buy-button rounded-0" type="button">BUY TOGETHER-Rs.209.00</button>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="row">
+                <div class="col-4 canvas-buy-col">
+                    <button class="btn-secondary details-button rounded-0" type="button" data-id="" data-variant=""><img src="/public/images/details_up_arrow.png" class="details-img" /><span> Details</span></button>
+                </div>                      
+                <div class="col-8 canvas-buy-col">
+                    <button class="btn-secondary buy-button rounded-0" type="button">BUY TOGETHER-Rs.209.00</button>
+                </div> 
+            </div>    
+        </div>               
+        <script>
+            var shopify_products = (shopify_products);
+            var product_data = product_data;
+            var colors_data = colors_data;
+        </script>
+    </body>
+
+</html>
